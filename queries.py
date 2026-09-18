@@ -52,26 +52,19 @@ connection_url = URL.create(
 
 engine = create_engine(connection_url)
 
-##Other ports for different DBMS; check documnetation of the DBMS as well!:
-## PostgreSQL: 5432 
-## SQL Server: 1433
-## Oracle: 1521
-## MariaDB: 3306 (same as MySQL)
-## SQLite: No port needed (file-based database)
+for filename in ["goodmockdata_schemadefinition.sql","goodmockdata.sql","query.sql"]:
+    sql_file_path = Path.cwd() / filename   # replace with your actual filename
+    
+    with open(sql_file_path, "r", encoding="utf-8") as f:
+        sql_script = f.read()
+    
+    statements = [s.strip() for s in sql_script.split(";") if s.strip()]
+    print(df)
+    
+    with engine.connect() as connection:
+        for s in statements:
+            connection.execute(text(s))
+        connection.commit()
 
-# %%
-# --- BASIC QUERY + DISPLAY ---
-df = pd.read_sql("SELECT * FROM Bicycle LIMIT 10;", engine)
-print(df)
 
-# %%
-# --- DML EXAMPLE (INSERT/UPDATE/DELETE) ---
-# For write operations, use execute() instead of pd.read_sql()
-# connection.execute() in SQLAlchemy expects an executable SQLAlchemy object. Therefore, wrap the string with text():
-with engine.connect() as connection:
-    connection.execute(text("UPDATE actor SET first_name = 'PENNY' WHERE actor_id = 1;"))
-    connection.commit()
-
-# %%
-# --- CLOSE CONNECTION ---
 engine.dispose()
