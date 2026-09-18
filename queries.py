@@ -41,16 +41,16 @@ server_url = URL.create(
     database   = db_name           # replace with your database name
 )
 
-connection_url = URL.create(
-    drivername = "mysql+pymysql",   # change for different DBMS
-    username   = "root",            # replace with your username
-    password   = "Almos55%",    # replace with your password
-    host       = "localhost",       # replace with your host
-    port       = 3306,              # replace with your port, example port for MySQL and MariaDB.
-    database   = "sakila"           # replace with your database name
-)
+# connection_url = URL.create(
+#     drivername = "mysql+pymysql",   # change for different DBMS
+#     username   = "root",            # replace with your username
+#     password   = "Almos55%",    # replace with your password
+#     host       = "localhost",       # replace with your host
+#     port       = 3306,              # replace with your port, example port for MySQL and MariaDB.
+#     database   = "sakila"           # replace with your database name
+# )
 
-engine = create_engine(connection_url)
+engine = create_engine(server_url)
 
 for filename in ["goodmockdata_schemadefinition.sql","goodmockdata.sql","query.sql"]:
     sql_file_path = Path.cwd() / filename   # replace with your actual filename
@@ -59,7 +59,7 @@ for filename in ["goodmockdata_schemadefinition.sql","goodmockdata.sql","query.s
         sql_script = f.read()
     
     statements = [s.strip() for s in sql_script.split(";") if s.strip()]
-    print(df)
+   
     
     with engine.connect() as connection:
         for s in statements:
