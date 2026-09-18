@@ -15,6 +15,32 @@ from sqlalchemy import create_engine, text
 from sqlalchemy.engine import URL
 
 # --- CONNECTION SETUP ---
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+from sqlalchemy import create_engine, text
+from sqlalchemy.engine import URL
+from sqlalchemy.exc import OperationalError
+
+# 1. Load environment variables
+load_dotenv()
+
+db_user = os.getenv("DB_USER")
+db_password = os.getenv("DB_PASSWORD")
+db_host = os.getenv("DB_HOST", "localhost")
+db_port = int(os.getenv("DB_PORT", 3306))
+db_name = os.getenv("DB_NAME", "MockdataGood")
+
+# 2. Connect to MySQL server root to ensure the database exists
+server_url = URL.create(
+    drivername="mysql+pymysql",
+    username=db_user,
+    password=db_password,
+    host=db_host,
+    port=db_port,
+    database   = db_name           # replace with your database name
+)
+
 connection_url = URL.create(
     drivername = "mysql+pymysql",   # change for different DBMS
     username   = "root",            # replace with your username
