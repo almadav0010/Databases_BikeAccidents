@@ -6,6 +6,9 @@ INSERT INTO 'Bicycle' Values
 ('B004', 'Cannondale', 0, 0, 6)
 ;
 
+
+
+
 INSERT INTO 'Cyclist' Values
 (361738163, 25, 1),
 (361738161, 30, 0),
