@@ -1,7 +1,7 @@
 # Databases_BikeAccidents
 
 This directory contains the code needed for 'Schema Design & Database Connection in Code'. 
-There are five existing files, and one personal file needed to be made. 
+There are five existing files, and one personal file needed to be made. \n
 -1: .env.example (follow this example file)
 -2: .gitignor (to not leak our credentials)
 -3: input_data.ipynb (our notebook where we actually load our database scheme, and fill up the tables with mockdata)
