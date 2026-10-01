@@ -1,0 +1,10 @@
+1!
+
+The first databased used in analysis.py is "Bestand geregistreerde ongevallen in Nederland (BRON)"
+It is the 2025 version, with more years available if needed. It is found on this website:
+"https://verkeersveiligheid.ndw.nu/dataset/bestand-geregistreerde-ongevallen-in-nederland-bron"
+
+
+2!
+
+XXXX
