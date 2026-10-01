@@ -1,0 +1,13 @@
+Productnaam          : BRON2025_DG1
+Aanvraagdatum        : 23-07-2026
+
+Waarschuwing         : LET OP: de data kan nog wijzigen, het product is nog niet definitief: data tm 2024 is definitief, over 2025 nog niet.
+
+Gebruikte Parameters : 
+Begindatum                               : 1-1-2025
+Einddatum                                : 31-12-2025
+Zone                                     :  
+Netwerk                                  : J
+Doelgroep                                : 1
+NWB peildatum                            : 1-07-2026
+Vtgkenmerk                               : N
