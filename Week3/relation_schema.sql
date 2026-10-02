@@ -72,7 +72,12 @@ CREATE TABLE IF NOT EXISTS Accident (
   downfall int DEFAULT NULL REFERENCES DownfallType (downfallTypeID),
   location int DEFAULT NULL REFERENCES Location (placeID),
   temperature smallint DEFAULT NULL,
-  road_wet tinyint(1) DEFAULT NULL
+  road_wet tinyint(1) DEFAULT NULL,
+  bron_id bigint UNIQUE,
+    severity varchar(20) DEFAULT NULL,
+    speed_limit smallint,
+    urban tinyint(1),
+    light int
 );
 
 -- MockdataGood.CyclistAccident definition
