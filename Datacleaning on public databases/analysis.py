@@ -13,7 +13,7 @@ fiets_ongeval_nummers = fietsers['VKL_NUMMER'].unique()
 
 # Stap 4: Filter de ongevallenlijst zodat je alleen deze ongevallen overhoudt
 fiets_ongevallen = ongevallen[ongevallen['VKL_NUMMER'].isin(fiets_ongeval_nummers)]
-df_filtered = fiets_ongevallen.iloc[:, [0, 1, 6, 10, 54, 55, 56]]
+df_filtered = fiets_ongevallen.iloc[:, [0, 1, 6, 10, 26, 54, 55, 56]]
 # Bekijk het resultaat
 ap3_mapping = {
     'LET': 'Wounded',
