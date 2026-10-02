@@ -1,10 +1,29 @@
-1!
-
+1:
 The first databased used in analysis.py is "Bestand geregistreerde ongevallen in Nederland (BRON)"
 It is the 2025 version, with more years available if needed. It is found on this website:
 "https://verkeersveiligheid.ndw.nu/dataset/bestand-geregistreerde-ongevallen-in-nederland-bron"
+This dataset uses a lot of vectorisation and normalization of the dataset.
+For Dutch users this dataset is intuitivly, but changes were made on translation and clarification.
+The data from BRON has not been changed or further cleaned. Not all columns were of intrest for us, so a subset was chosen. 
+
+Statiscics:
+Data owner:	Rijkswaterstaat (Rijk)
+Status:	Available
+Access:	Public
+
+2:
+The second databased used in 'fichier_database.ipynb' is a french database, published on the European Union website. 
+(https://data.europa.eu/data/datasets/5d56becc8b4c412584b830c9?locale=en)
+This dataset was more difficult to decifer, due to the language barrier and the use of vectorisation within the values.
+So finding out which bicycles were being used was difficult. 
+A 'Description des champs' was available on the website, where these descriptions became more clear.
+The data cleaning steps used for this dataset is found in 'fichier_database.ipynb'.
+The final data cleaning step was the deletion of 62 rows (out of 92K rows) with extreme outliers within age. 
 
 
-2!
-
-XXXX
+Statistics:
+Created: 16 August 2019
+Updated: 09 June 2026
+Publisher: Koumoul
+E-Mail: mailto:contact@koumoul.com
+Access Rights: public
