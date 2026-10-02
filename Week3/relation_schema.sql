@@ -9,7 +9,7 @@ Changed the name of the junction table of Bicycle and Cyclist from BicycleCyclis
 CREATE TABLE IF NOT EXISTS AccidentType (
   accdentTypeID int PRIMARY KEY AUTO_INCREMENT,
   type varchar(100) NOT NULL,
-  weather_effect_score int CHECK(BETWEEN 1 and 10) DEFAULT 5 -- how much does weather, like low light effect the certain accident type, like bike with bike/bike with car. 5 is average
+    weather_effect_score int DEFAULT 5 CHECK (weather_effect_score BETWEEN 1 AND 10) -- how much does weather, like low light effect the certain accident type, like bike with bike/bike with car. 5 is average
 );
 
 -- MockdataGood.Bicycle definition
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS ReasonType (
 CREATE TABLE IF NOT EXISTS RoadType (
   roadTypeID int PRIMARY KEY AUTO_INCREMENT,
   type varchar(100) NOT NULL,
-  rain_effect_score int(10) CHECK(BETWEEN 1 and 10) DEFAULT 5 -- 5 is average, if no data was added we assume average
+  rain_effect_score int(10) DEFAULT 5 CHECK(rain_effect_score BETWEEN 1 and 10)  -- 5 is average, if no data was added we assume average
 );
 
 -- MockdataGood.BicycleOwnership definition
@@ -57,17 +57,17 @@ CREATE TABLE IF NOT EXISTS BicycleOwnership (
 -- MockdataGood.Location definition
 CREATE TABLE IF NOT EXISTS Location (
   placeID int PRIMARY KEY AUTO_INCREMENT,
-  city varchar(27) NOT NULL, --longest we found is 27 letters: Westerhaar-Vriezenveensewijk
+  city varchar(50) NOT NULL, -- longest we found is 27 letters: Westerhaar-Vriezenveensewijk
   street varchar(100) NOT NULL, -- in intersections always the street the biker at fault was coming from
-  road_quality_score int(10) CHECK(BETWEEN 1 and 10) DEFAULT NULL,
-  road_type int DEFAULT NULL REFERENCES RoadType (roadTypeID),
+  road_quality_score int(10) DEFAULT NULL CHECK(road_quality_score BETWEEN 1 and 10),
+  road_type int DEFAULT NULL REFERENCES RoadType (roadTypeID)
 );
 
 -- MockdataGood.Accident definition
 CREATE TABLE IF NOT EXISTS Accident (
   ID int PRIMARY KEY AUTO_INCREMENT,
-  time datetime NOT NULL,
-  type int NOT NULL REFERENCES AccidentType (accdentTypeID),
+  time datetime DEFAULT NULL,
+  type int DEFAULT NULL REFERENCES AccidentType (accdentTypeID),
   reason int DEFAULT NULL REFERENCES ReasonType (reasonTypeID),
   downfall int DEFAULT NULL REFERENCES DownfallType (downfallTypeID),
   location int DEFAULT NULL REFERENCES Location (placeID),
