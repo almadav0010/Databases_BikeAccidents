@@ -18,4 +18,4 @@ Without this .env file, you will not be able to connect to MySQL.
 Only run the notebook. Everything will be explained in there.
 
 ## Data cleansing process
-You can find documentation for the data cleaning process here: `\Datacleaning on public databases\Datacleaning report.md`
+You can find documentation for the data cleaning process here: `\Datacleaning on public databases\DATABASES USED.txt`
