@@ -3,18 +3,18 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pickle 
 
-ongevallen = pd.read_pickle("dataset.pkl")
+accidents = pd.read_pickle("dataset.pkl")
 partijen = pd.read_csv('Partijen.txt', sep=',')
 
-fietsers = partijen[partijen['OTE_ID'].isin([64, 66])]
+byciclers = partijen[partijen['OTE_ID'].isin([64, 66])]
 
-# Stap 3: Haal een lijst op met alle unieke ongevalnummers waar een fietser bij zat
-fiets_ongeval_nummers = fietsers['VKL_NUMMER'].unique()
+# Step 3: Produce a list of all unique accident ids/numbers involving bikers
+bike_accident_numbers = byciclers['VKL_NUMMER'].unique()
 
-# Stap 4: Filter de ongevallenlijst zodat je alleen deze ongevallen overhoudt
-fiets_ongevallen = ongevallen[ongevallen['VKL_NUMMER'].isin(fiets_ongeval_nummers)]
-df_filtered = fiets_ongevallen.iloc[:, [0, 1, 6, 10, 26, 54, 55, 56]]
-# Bekijk het resultaat
+# Stap 4: Filter the accidents list s.t. je alleen these accidents overhoudt
+fiets_accidents = accidents[accidents['VKL_NUMMER'].isin(bike_accident_numbers)]
+df_filtered = fiets_accidents.iloc[:, [0, 1, 6, 10, 26, 54, 55, 56]]
+# Map categories to english
 ap3_mapping = {
     'LET': 'Wounded',
     'UMS': 'Material damage',
