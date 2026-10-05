@@ -19,3 +19,24 @@ Only run the notebook. Everything will be explained in there.
 
 ## Data cleansing process
 You can find documentation for the data cleaning process here: `\Datacleaning on public databases\DATABASES USED.txt`
+
+## Limitations of Our Database
+- It cannot answer complex situations, such as:
+  - Accident with an unregistered bicycle
+  - We found the longest name bike brand and city to be 27 character long, we added an error bound, and set the maximum characters for both 50, however if there is an insertion which has a more than 50 characters long city name or bike brand name, it will give an error.
+  - If we do not have certain information of any part(for example weather conditions on the accident day, if the person usually wears a helmet), we use DEFAULT VALUES, such that:
+      - For usual helmet wearing we assume false
+      - For weather effect score we assume 5
+      - For rain effect score we assume 5
+      - Cyclist accident: without data we assume person is not at fault
+      - For other attributes if DEFAULT is used, it is DEFAULT NULL
+
+
+## Future Plans
+Our future plans include improvements related to decrease the limitations and add useful functionalities.
+- We assume:
+  - For weather effect score we assume 5
+  - For rain effect score we assume 5
+  - For usual helmet wearing we assume false
+However may these attributes could be investigated more, they may relate to each other, or the person's age.
+- Visualization in python.
