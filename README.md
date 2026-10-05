@@ -24,7 +24,7 @@ You can find documentation for the data cleaning process here: `\Datacleaning on
 - It cannot answer complex situations, such as:
   - Accident with an unregistered bicycle
 - We found the longest name bike brand and city to be 27 character long, we added an error bound, and set the maximum characters for both 50, however if there is an insertion which has a more than 50 characters long city name or bike brand name, it will give an error.
-- If we do not have certain information of any part(for example weather conditions on the accident day, if the person usually wears a helmet), we use DEFAULT VALUES, such that:
+- If we do not have certain information of any part(for example weather conditions on the accident day, if the person usually wears a helmet), we use NON NULL DEFAULT VALUES, this can cause bias and misleading results for queries(if we do not have rain effect score information for a significant number of accidents, it can cause incorrect derivations while querying):
   - For usual helmet wearing we assume false (most dutch people dont wear helmet so a false assumption is reasonable)
   - For weather effect score we assume 5 (on 1-10)
   - For rain effect score we assume 5 (on 1-10)
