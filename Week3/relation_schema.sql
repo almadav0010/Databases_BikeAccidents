@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS Bicycle (
 CREATE TABLE IF NOT EXISTS Cyclist (
   BSN int PRIMARY KEY,
   age int DEFAULT NULL,
-  helmet_usually BOOLEAN DEFAULT FALSE -- most dutch people dont wear helmet so a false assumption is reasonable
+  helmet_usually TINYINT DEFAULT FALSE -- most dutch people dont wear helmet so a false assumption is reasonable
 );
 
 -- MockdataGood.DownfallType definition
