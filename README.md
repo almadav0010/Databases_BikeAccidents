@@ -50,7 +50,7 @@ Access Rights: public
 
 
 ## Data cleansing process
-You can find documentation for the data cleaning process here: `\Datacleaning on public databases\DATABASES USED.txt`
+You can find documentation for the data cleaning process here: `\Week5\DATABASES USED.txt`
 
 ## Limitations of Our Database
 - It cannot answer complex situations, such as:
