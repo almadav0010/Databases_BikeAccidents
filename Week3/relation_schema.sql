@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS AccidentType (
 -- MockdataGood.Bicycle definition
 CREATE TABLE IF NOT EXISTS Bicycle (
   serial_num varchar(12) PRIMARY KEY,
-  brand varchar(100) DEFAULT NULL,
+  brand varchar(50) DEFAULT NULL, -- Longest bike brand name is 27 characters long:Kona Humuhumunukunukuapua'a, set maximum length to 50
   ebike tinyint(1) DEFAULT NULL,
   fatbike tinyint(1) DEFAULT NULL,
   age int DEFAULT NULL
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS Bicycle (
 CREATE TABLE IF NOT EXISTS Cyclist (
   BSN int PRIMARY KEY,
   age int DEFAULT NULL,
-  helmet_usually tinyint(1) DEFAULT 0 -- most dutch people dont wear helmet so a false assumption is reasonable
+  helmet_usually BOOLEAN DEFAULT FALSE -- most dutch people dont wear helmet so a false assumption is reasonable
 );
 
 -- MockdataGood.DownfallType definition
@@ -57,7 +57,8 @@ CREATE TABLE IF NOT EXISTS BicycleOwnership (
 -- MockdataGood.Location definition
 CREATE TABLE IF NOT EXISTS Location (
   placeID int PRIMARY KEY AUTO_INCREMENT,
-  city varchar(50) NOT NULL, -- longest we found is 27 letters: Westerhaar-Vriezenveensewijk
+  /*longest city name we found is 27 letters: Westerhaar-Vriezenveensewijk, but we made upper bound 50 to not crash in any situation*/
+  city varchar(50) NOT NULL, 
   street varchar(100) NOT NULL, -- in intersections always the street the biker at fault was coming from
   road_quality_score int(10) DEFAULT NULL CHECK(road_quality_score BETWEEN 1 and 10),
   road_type int DEFAULT NULL REFERENCES RoadType (roadTypeID)
